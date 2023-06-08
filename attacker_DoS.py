@@ -4,7 +4,8 @@ import random
 def rip ():	# generating a random IP address '192.168.1.X'
 
 	ip_pool = [b'\xC0\xA8\x01\x03', b'\xC0\xA8\x01\x99', b'\xC0\xA8\x01\x55', b'\xC0\xA8\x01\x42', b'\xC0\xA8\x01\x61']
-tmp = random.randint(0,5)
+	tmp = random.randint(0,5)
+	return ip_pool[tmp]
 number = 0
 while True:
 
