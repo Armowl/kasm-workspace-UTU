@@ -3,12 +3,13 @@ import random
 
 def rip ():	# generating a random IP address '192.168.1.X'
 
+	octet1 = str(hex(192))
+	octet2 = str(hex(168))
+	octet3 = str(hex(1))
 	octet4 = str(hex(random.randint(1,254)))
-	octet1 = '\xC0'
-	octet2 = '\xA8'
-	octet3 = '\x01'
-	ip = octet1 + octet2 + octet3 + octet4
-	return ip.encode()
+
+	ip = octet1+octet2+octet3+octet4
+
 
 number = 0
 while True:
