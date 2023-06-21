@@ -1,5 +1,6 @@
 import socket
 import random
+import time
 
 def rip ():	# generating a random IP address '192.168.1.X'
 
@@ -29,6 +30,8 @@ while True:
 		packet = ip_header + tcp_header
 		s.sendto(packet, ('192.168.1.103', 0))
 		number += 1
-		print(f'sent packet from {tmp} ' + str(number))
+		#print(f'sent packet from {tmp} ' + str(number))
+		print('sent a SYN packet')
+		time.sleep(3)
 	except Exception:
 		pass
